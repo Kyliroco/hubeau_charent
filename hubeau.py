@@ -1,7 +1,7 @@
 import requests
 
 # Construction de l'URL de l'API
-url = f"https://hubeau.eaufrance.fr/api/v1/ecoulement/stations?format=json&code_departement=17&size=20"
+url = f"https://hubeau.eaufrance.fr/api/v1/ecoulement/stations?format=json&code_departement=17"
 
 # Envoie de la requête GET à l'API
 response = requests.get(url)
@@ -14,7 +14,7 @@ if response.status_code == 206 or response.status_code == 200:
     ecoulements = []    
     for station in stations:
         # Construction de l'URL de l'API
-        url = f"https://hubeau.eaufrance.fr/api/v1/ecoulement/observations?format=json&code_station={station}&size=20"
+        url = f"https://hubeau.eaufrance.fr/api/v1/ecoulement/observations?format=json&code_station={station}"
         # Envoie de la requête GET à l'API
         response = requests.get(url)
         # Vérification du succès de la requête
